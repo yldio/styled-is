@@ -1,0 +1,77 @@
+{
+  "name": "styled-is",
+  "version": "1.0.11",
+  "license": "MPL-2.0",
+  "description": "Flag utility for styled-components",
+  "keywords": [
+    "flag",
+    "flags",
+    "react",
+    "css",
+    "css-in-js",
+    "styled-components"
+  ],
+  "repository": "github:yldio/joyent-portal",
+  "main": "dist/styled-is.umd.js",
+  "jsnext:main": "dist/styled-is.es.js",
+  "module": "dist/styled-is.es.js",
+  "entry": "src/index.js",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test:run": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
+    "test-ci:run": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
+    "test": "redrun -s build test:run",
+    "test-ci": "redrun -s build test-ci:run",
+    "build": "bup",
+    "prepublish": "redrun build"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
+    "babel-plugin-transform-es2015-parameters": "^6.24.1",
+    "babel-plugin-transform-es2015-spread": "^6.22.0",
+    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
+    "babel-register": "^6.26.0",
+    "bup": "^1.0.9",
+    "cross-env": "^5.0.5",
+    "eslint": "^4.5.0",
+    "eslint-config-joyent-portal": "3.0.0",
+    "nyc": "^11.1.0",
+    "react": "^15.6.1",
+    "redrun": "^5.9.17",
+    "styled-components": "^2.1.2",
+    "tap-xunit": "^1.7.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "styled-components": "*"
+  },
+  "nyc": {
+    "sourceMap": false,
+    "instrument": false
+  },
+  "babel": {
+    "sourceMaps": "inline",
+    "plugins": [
+      "transform-es2015-parameters",
+      "transform-es2015-template-literals",
+      "transform-es2015-arrow-functions",
+      "transform-es2015-spread"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "ava": {
+    "tap": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}
