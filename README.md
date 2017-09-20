@@ -15,7 +15,7 @@ Flag utility for [`styled-components`](https://github.com/styled-components/styl
 ## Install
 
 ```
-yarn add --dev styled-is
+yarn add styled-is
 ```
 
 ## Usage
