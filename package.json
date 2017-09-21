@@ -1,6 +1,6 @@
 {
   "name": "styled-is",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MPL-2.0",
   "description": "Flag utility for styled-components",
   "keywords": [
