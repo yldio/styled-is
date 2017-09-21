@@ -1,13 +1,12 @@
 import { css } from 'styled-components';
 
-export default (...names) => (...args) => props =>
-  names.every(name => props[name]) ? css(...args) : css``;
+const styledIf = (method, condition) => (...names) => (...args) => props =>
+  names[method](name => props[name] === condition) && css(...args);
 
-export const isNot = (...names) => (...args) => props =>
-  names.every(name => !props[name]) ? css(...args) : css``;
+const is = styledIf('every', true);
+const isNot = styledIf('every', false);
+const isOr = styledIf('some', true);
+const isSomeNot = styledIf('some', false);
 
-export const isOr = (...names) => (...args) => props =>
-  names.some(name => props[name]) ? css(...args) : css``;
-
-export const isSomeNot = (...names) => (...args) => props =>
-  names.some(name => !props[name]) ? css(...args) : css``;
+export default is;
+export { isNot, isOr, isSomeNot };
