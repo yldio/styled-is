@@ -11,22 +11,20 @@
     "css-in-js",
     "styled-components"
   ],
-  "repository": "github:yldio/joyent-portal",
+  "repository": "github:yldio/styled-is",
   "main": "dist/styled-is.umd.js",
   "jsnext:main": "dist/styled-is.es.js",
   "module": "dist/styled-is.es.js",
   "entry": "src/index.js",
   "scripts": {
     "lint": "eslint . --fix",
-    "test:run": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
-    "test-ci:run": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
-    "test": "redrun -s build test:run",
-    "test-ci": "redrun -s build test-ci:run",
+    "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
     "build": "bup",
-    "prepublish": "redrun build"
+    "prepublish": "bup"
   },
   "devDependencies": {
     "ava": "^0.22.0",
+    "babel-eslint": "^8.0.0",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-transform-es2015-arrow-functions": "^6.22.0",
     "babel-plugin-transform-es2015-parameters": "^6.24.1",
@@ -34,14 +32,19 @@
     "babel-plugin-transform-es2015-template-literals": "^6.22.0",
     "babel-register": "^6.26.0",
     "bup": "^1.0.9",
-    "cross-env": "^5.0.5",
-    "eslint": "^4.5.0",
-    "eslint-config-joyent-portal": "3.0.0",
+    "eslint": "^4.7.1",
+    "eslint-config-joyent-portal": "^3.0.0",
+    "eslint-config-prettier": "^2.5.0",
+    "eslint-config-react-app": "^2.0.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "eslint-plugin-flowtype": "^2.35.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.3.0",
     "nyc": "^11.1.0",
     "react": "^15.6.1",
-    "redrun": "^5.9.17",
-    "styled-components": "^2.1.2",
-    "tap-xunit": "^1.7.0"
+    "styled-components": "^2.1.2"
   },
   "peerDependencies": {
     "react": "*",
