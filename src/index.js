@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 
 const styledIf = (method, condition) => (...names) => (...args) => props =>
-  names[method](name => props[name] === condition) && css(...args);
+  names[method](name => Boolean(props[name]) === condition) && css(...args);
 
 const is = styledIf('every', true);
 const isNot = styledIf('every', false);

@@ -1,6 +1,6 @@
 {
   "name": "styled-is",
-  "version": "1.0.12",
+  "version": "1.0.15",
   "license": "MPL-2.0",
   "description": "Flag utility for styled-components",
   "keywords": [
@@ -16,6 +16,9 @@
   "jsnext:main": "dist/styled-is.es.js",
   "module": "dist/styled-is.es.js",
   "entry": "src/index.js",
+  "directories": {
+    "lib": "dist"
+  },
   "scripts": {
     "lint": "eslint . --fix",
     "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text ava",
