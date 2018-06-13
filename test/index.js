@@ -42,7 +42,7 @@ test('should render only if one prop is truthy', t => {
   t.deepEqual(rule({ t1: true, t2: true }), ['hello']);
 });
 
-test('should render only if one prop is falsy', t => {
+test('should render if at least one prop is falsy', t => {
   const rule = isSomeNot('t1', 't2')`hello`;
 
   t.deepEqual(rule({ t1: true, t2: false }), ['hello']);
