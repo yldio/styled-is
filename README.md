@@ -29,7 +29,7 @@ yarn add styled-is
 
 ```match``` is used to check the value of a prop ```match(prop, value)```.
 
-Functions can also be passed to all of the above allow for more complex prop-checking. Any functions passed in will automatically be called with the component's props. For example if you wanted to handle a button with only an icon differently for different sizes:
+Functions can also be passed to all of the above to allow for more complex prop-checking. Any functions passed in will automatically be called with the component's props. For example if you wanted to handle a button with only an icon differently for different sizes:
 
 ```js
 ${match("size", "large")`
