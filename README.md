@@ -14,6 +14,7 @@ Flag utility for [`styled-components`](https://github.com/styled-components/styl
 
 - [Install](#install)
 - [Usage](#usage)
+- [Examples](#examples)
 - [License](#license)
 
 ## Install
