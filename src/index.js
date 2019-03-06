@@ -15,15 +15,20 @@ const styledIf = (method, condition) => (...names) => (...args) => props => {
 };
 
 const handleFunctions = (args, props) => {
-  const newArgs = args.slice(0);
+  let css = "";
   for (let i = 1; i < args.length; i++) {
     if (typeof args[i] === "function") {
-      const argCss = args[0].slice(1);
-      argCss.unshift(args[i](props) + newArgs[0][0]);
-      newArgs[0] = argCss;
+      css = css + args[i](props);
     }
   }
-  return newArgs;
+  if (css) {
+    const newArgs = args.slice(0);
+    const argCss = args[0].slice(1);
+    argCss.unshift(css + newArgs[0][0]);
+    newArgs[0] = argCss;
+    return newArgs;
+  }
+  return args;
 };
 
 const is = styledIf('every', true);
