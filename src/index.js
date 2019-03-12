@@ -18,7 +18,10 @@ const handleFunctions = (args, props) => {
   let css = "";
   for (let i = 1; i < args.length; i++) {
     if (typeof args[i] === "function") {
-      css = css + args[i](props);
+      const output = args[i](props);
+      if (output.includes(":")) {
+        css = css + output;
+      }
     }
   }
   if (css) {
