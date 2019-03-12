@@ -20,7 +20,7 @@ const handleFunctions = (args, props) => {
     if (typeof args[i] === "function") {
       const output = args[i](props);
       if (output.includes(":")) {
-        css = css + args[i](props);
+        css = css + output;
       }
     }
   }
