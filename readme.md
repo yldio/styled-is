@@ -25,9 +25,9 @@ yarn add styled-is
 
 ## Usage
 
-```is, isNot, isOr, isSomeNot``` are used for boolean props and can check one or more props at a time ```is(prop1, prop2, ...)```.
+`is, isNot, isOr, isSomeNot` are used for boolean props and can check one or more props at a time `is(prop1, prop2, ...)`.
 
-```match``` is used to check the value of a prop ```match(prop, value)```.
+`match` is used to check the value of a prop `match(prop, value)`.
 
 Functions can also be passed to all of the above to allow for more complex prop-checking. Any functions passed in will automatically be called with the component's props. For example if you wanted to handle a button with only an icon differently for different sizes:
 
@@ -58,7 +58,7 @@ import styled from 'styled-components';
 const Div = styled.div`
   display: block;
   opacity: 0;
-  
+
   ${is('red')`
     background-color: red;
   `};
@@ -97,14 +97,11 @@ const Div = styled.div`
 
   ${is('green')`
     background-color: green;
-    ${props =>
-      props.size === 'small'
-        ? `width: 3rem;`
-        : `width: 6rem;`}
+    ${props => (props.size === 'small' ? `width: 3rem;` : `width: 6rem;`)}
   `};
 `;
-
 ```
+
 ```js
 // display: block;
 // opacity: 0;

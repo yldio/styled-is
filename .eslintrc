@@ -1,3 +1,13 @@
 {
-  "extends": "joyent-portal"
+  "extends": [
+    "eslint:recommended",
+    "xo-space/esnext",
+    "react-app",
+    "prettier",
+    "prettier/react"
+  ],
+  "rules": {
+    "capitalized-comments": 0,
+    "new-cap": 0
+  }
 }

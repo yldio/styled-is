@@ -6,7 +6,7 @@ import { css } from 'styled-components';
 
 const styledIf = (method, condition) => (...names) => (...args) => props => {
   return (
-    (method === "match"
+    (method === 'match'
       ? props[names[0]] === names[1]
       : names[method](name => {
           return Boolean(props[name]) === condition;
@@ -15,15 +15,16 @@ const styledIf = (method, condition) => (...names) => (...args) => props => {
 };
 
 const handleFunctions = (args, props) => {
-  let css = "";
+  let css = '';
   for (let i = 1; i < args.length; i++) {
-    if (typeof args[i] === "function") {
+    if (typeof args[i] === 'function') {
       const output = args[i](props);
-      if (output.includes(":")) {
-        css = css + output;
+      if (output.includes(':')) {
+        css += output;
       }
     }
   }
+
   if (css) {
     const newArgs = args.slice(0);
     const argCss = args[0].slice(1);
@@ -31,6 +32,7 @@ const handleFunctions = (args, props) => {
     newArgs[0] = argCss;
     return newArgs;
   }
+
   return args;
 };
 
@@ -38,7 +40,7 @@ const is = styledIf('every', true);
 const isNot = styledIf('every', false);
 const isOr = styledIf('some', true);
 const isSomeNot = styledIf('some', false);
-const match = styledIf("match");
+const match = styledIf('match');
 
 export default is;
 export { isNot, isOr, isSomeNot, match };
