@@ -19,7 +19,7 @@ const handleFunctions = (args, props) => {
   for (let i = 1; i < args.length; i++) {
     if (typeof args[i] === 'function') {
       const output = args[i](props);
-      if (output.includes(':')) {
+      if (typeof output === "string" && output.includes(':')) {
         css += output;
       }
     }
