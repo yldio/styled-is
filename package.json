@@ -19,6 +19,7 @@
   "directories": {
     "lib": "dist"
   },
+  "types": "src/index.d.ts",
   "scripts": {
     "build": "bup",
     "fmt": "prettier --config .prettierrc --write '**/*'",
