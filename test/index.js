@@ -2,7 +2,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
-const { default: is, isNot, isOr, isSomeNot } = require('../');
+const { default: is, isNot, isOr, isSomeNot, match } = require('../');
 const test = require('ava');
 
 test('should render only if prop is truthy', t => {
@@ -53,4 +53,11 @@ test('should render if at least one prop is falsy', t => {
   t.deepEqual(rule({ t1: false, t2: false }), ['hello']);
   t.deepEqual(rule({ t1: false, t2: true }), ['hello']);
   t.deepEqual(rule({ t1: true, t2: true }), false);
+});
+
+test('should render match is true', t => {
+  const rule = match('test', 'lol')`hello`;
+
+  t.deepEqual(rule({ test: 'one' }), false);
+  t.deepEqual(rule({ test: 'lol' }), ['hello']);
 });

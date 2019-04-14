@@ -61,7 +61,7 @@
     "require": [
       "@babel/register"
     ],
-    "sourceMap": false,
+    "sourceMap": true,
     "instrument": false
   },
   "ava": {
