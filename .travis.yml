@@ -1,7 +1,0 @@
-language: node_js
-cache: yarn
-node_js:
-  - '11'
-  - '10'
-before_install: yarn global add greenkeeper-lockfile@1
-before_script: greenkeeper-lockfile-update

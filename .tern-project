@@ -1,8 +1,0 @@
-{
-  "libs": ["ecmascript"],
-  "plugins": {
-    "doc_comment": true,
-    "local-scope": true,
-    "node": true
-  }
-}
