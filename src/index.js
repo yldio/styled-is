@@ -19,7 +19,7 @@ const handleFunctions = (args, props) => {
   for (let i = 1; i < args.length; i++) {
     if (typeof args[i] === 'function') {
       const output = args[i](props);
-      if (typeof output === "string" && output.includes(':')) {
+      if (typeof output === 'string' && output.includes(':')) {
         css += output;
       }
     }
@@ -36,6 +36,14 @@ const handleFunctions = (args, props) => {
   return args;
 };
 
+const getProp = path => props => {
+  for (let i = 0, target = path.split('.'), len = target.length; i < len; i++) {
+    props = props[target[i]];
+  }
+
+  return props;
+};
+
 const is = styledIf('every', true);
 const isNot = styledIf('every', false);
 const isOr = styledIf('some', true);
@@ -43,4 +51,4 @@ const isSomeNot = styledIf('some', false);
 const match = styledIf('match');
 
 export default is;
-export { isNot, isOr, isSomeNot, match };
+export { isNot, isOr, isSomeNot, match, getProp };

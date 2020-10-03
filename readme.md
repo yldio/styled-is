@@ -99,6 +99,10 @@ const Div = styled.div`
     background-color: green;
     ${props => (props.size === 'small' ? `width: 3rem;` : `width: 6rem;`)}
   `};
+
+  ${getProp('theme.primaryColor')};
+
+  ${getProp('colorPrimary')};
 `;
 ```
 
