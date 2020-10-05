@@ -3,6 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import { css } from 'styled-components';
+import get from 'lodash/fp/get';
 
 const styledIf = (method, condition) => (...names) => (...args) => props => {
   return (
@@ -19,7 +20,7 @@ const handleFunctions = (args, props) => {
   for (let i = 1; i < args.length; i++) {
     if (typeof args[i] === 'function') {
       const output = args[i](props);
-      if (typeof output === "string" && output.includes(':')) {
+      if (typeof output === 'string' && output.includes(':')) {
         css += output;
       }
     }
@@ -43,4 +44,4 @@ const isSomeNot = styledIf('some', false);
 const match = styledIf('match');
 
 export default is;
-export { isNot, isOr, isSomeNot, match };
+export { isNot, isOr, isSomeNot, match, get };
