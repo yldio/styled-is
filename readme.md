@@ -52,7 +52,7 @@ ${match("size", "small")`
 ## Examples
 
 ```js
-import is, { isNot, isOr, isSomeNot, match } from 'styled-is';
+import is, { isNot, isOr, isSomeNot, match, get } from 'styled-is';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -100,9 +100,9 @@ const Div = styled.div`
     ${props => (props.size === 'small' ? `width: 3rem;` : `width: 6rem;`)}
   `};
 
-  ${getProp('theme.primaryColor')};
+  ${get('theme.primaryColor')};
 
-  ${getProp('colorPrimary')};
+  ${get('colorPrimary')};
 `;
 ```
 
