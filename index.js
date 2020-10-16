@@ -4,11 +4,11 @@
 
 import { css } from 'styled-components';
 
-const styledIf = (method, condition) => (...names) => (...args) => props => {
+const styledIf = (method, condition) => (...names) => (...args) => (props) => {
   return (
     (method === 'match'
       ? props[names[0]] === names[1]
-      : names[method](name => {
+      : names[method]((name) => {
           return Boolean(props[name]) === condition;
         })) && css(...handleFunctions(args, props))
   );
@@ -19,7 +19,7 @@ const handleFunctions = (args, props) => {
   for (let i = 1; i < args.length; i++) {
     if (typeof args[i] === 'function') {
       const output = args[i](props);
-      if (typeof output === "string" && output.includes(':')) {
+      if (typeof output === 'string' && output.includes(':')) {
         css += output;
       }
     }

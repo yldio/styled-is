@@ -1,5 +1,5 @@
 type BooleanProps<T> = {
-  [P in keyof T]: T[P] extends boolean ? P : never
+  [P in keyof T]: T[P] extends boolean ? P : never;
 }[keyof T];
 
 export function match<T>(propName: keyof T, propValue: T[keyof T]);
